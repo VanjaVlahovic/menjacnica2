@@ -1,15 +1,18 @@
 package menjacnica;
 
 import java.util.GregorianCalendar;
+import java.util.LinkedList;
 
 import menjacnica.interfejs.MenjacnicaInterface;
 
 public class Menjacnica implements MenjacnicaInterface {
-
+	private LinkedList<Valuta> valute = new LinkedList<>();
 	@Override
 	public void dodajKurs(String naziv, Kurs kurs) {
-		// TODO Auto-generated method stub
-
+		for (int i = 0; i < valute.size(); i++) {
+			if (valute.get(i).getNaziv().equals(naziv))
+				valute.get(i).setKurs(kurs);
+		}
 	}
 
 	@Override
