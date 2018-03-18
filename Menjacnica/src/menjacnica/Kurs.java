@@ -7,38 +7,47 @@ public class Kurs {
 	private double prodajni;
 	private double kupovni;
 	private double srednji;
+	
 	public GregorianCalendar getDatum() {
 		return datum;
 	}
+	
 	public void setDatum(GregorianCalendar datum) {
 		if (datum==null)
 			throw new RuntimeException("Datum ne sme imati null vrednost.");
 		this.datum = datum;
 	}
+	
 	public double getProdajni() {
 		return prodajni;
 	}
+	
 	public void setProdajni(double prodajni) {
 		if (prodajni<=0)
 			throw new RuntimeException("Prodajni kurs mora imati vrednost vecu od nule.");
 		this.prodajni = prodajni;
 	}
+	
 	public double getKupovni() {
 		return kupovni;
 	}
+	
 	public void setKupovni(double kupovni) {
 		if (kupovni<=0)
 			throw new RuntimeException("Kupovni kurs mora imati vrednost vecu od nule.");
 		this.kupovni = kupovni;
 	}
+	
 	public double getSrednji() {
 		return srednji;
 	}
+	
 	public void setSrednji(double srednji) {
 		if (srednji<=0)
 			throw new RuntimeException("Srednji kurs mora imati vrednost vecu od nule.");
 		this.srednji = srednji;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -53,6 +62,7 @@ public class Kurs {
 		result = prime * result + (int) (temp ^ (temp >>> 32));
 		return result;
 	}
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -75,6 +85,7 @@ public class Kurs {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Kurs [datum=" + datum + ", prodajni=" + prodajni + ", kupovni=" + kupovni + ", srednji=" + srednji
