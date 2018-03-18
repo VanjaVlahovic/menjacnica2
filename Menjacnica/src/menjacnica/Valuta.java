@@ -8,18 +8,24 @@ public class Valuta {
 		return naziv;
 	}
 	public void setNaziv(String naziv) {
+		if (naziv==null || naziv.isEmpty())
+			throw new RuntimeException("Naziv ne sme biti null ili prazan string.");
 		this.naziv = naziv;
 	}
 	public String getSkraceniNaziv() {
 		return skraceniNaziv;
 	}
 	public void setSkraceniNaziv(String skraceniNaziv) {
+		if (skraceniNaziv==null || skraceniNaziv.isEmpty())
+			throw new RuntimeException("Skraceni naziv ne sme biti null ili prazan string.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
 	public Kurs getKurs() {
 		return kurs;
 	}
 	public void setKurs(Kurs kurs) {
+		if (!(kurs instanceof Kurs))
+			throw new RuntimeException("Kurs nije ispravno unet.");
 		this.kurs = kurs;
 	}
 	@Override
