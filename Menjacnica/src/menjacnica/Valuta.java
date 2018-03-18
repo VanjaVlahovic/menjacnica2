@@ -1,9 +1,12 @@
 package menjacnica;
 
+import java.util.LinkedList;
+
 public class Valuta {
 	private String naziv;
 	private String skraceniNaziv;
-	private Kurs kurs;
+	private LinkedList<Kurs> kursevi;
+	
 	public String getNaziv() {
 		return naziv;
 	}
@@ -20,19 +23,17 @@ public class Valuta {
 			throw new RuntimeException("Skraceni naziv ne sme biti null ili prazan string.");
 		this.skraceniNaziv = skraceniNaziv;
 	}
-	public Kurs getKurs() {
-		return kurs;
+	
+	public LinkedList<Kurs> getKursevi() {
+		return kursevi;
 	}
-	public void setKurs(Kurs kurs) {
-		if (!(kurs instanceof Kurs))
-			throw new RuntimeException("Kurs nije ispravno unet.");
-		this.kurs = kurs;
+	public void setKursevi(LinkedList<Kurs> kursevi) {
+		this.kursevi = kursevi;
 	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((kurs == null) ? 0 : kurs.hashCode());
 		result = prime * result + ((naziv == null) ? 0 : naziv.hashCode());
 		result = prime * result + ((skraceniNaziv == null) ? 0 : skraceniNaziv.hashCode());
 		return result;
@@ -46,11 +47,6 @@ public class Valuta {
 		if (getClass() != obj.getClass())
 			return false;
 		Valuta other = (Valuta) obj;
-		if (kurs == null) {
-			if (other.kurs != null)
-				return false;
-		} else if (!kurs.equals(other.kurs))
-			return false;
 		if (naziv == null) {
 			if (other.naziv != null)
 				return false;
@@ -65,8 +61,9 @@ public class Valuta {
 	}
 	@Override
 	public String toString() {
-		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv + ", kurs=" + kurs + "]";
+		return "Valuta [naziv=" + naziv + ", skraceniNaziv=" + skraceniNaziv + ", kursevi=" + kursevi + "]";
 	}
+	
 	
 	
 	
